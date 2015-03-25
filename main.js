@@ -7,7 +7,7 @@ var app = express()
 var client = redis.createClient(6379, '127.0.0.1', {});
 var recentKeys = "recentKeys";
 var images = "imagelist";
-
+var args = process.argv.splice(2);
 // check if redis not working
 client.on('error',function(err){ console.error(err)})
 
@@ -15,7 +15,7 @@ client.on('error',function(err){ console.error(err)})
 
 // Add hook to make it easier to get all visited URLS.
 //HTTP SERVER
- var server = app.listen(3002, function () {
+ var server = app.listen(args[0] || 3001, function () {
 
   var host = server.address().address
   var port = server.address().port
