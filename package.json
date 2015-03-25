@@ -1,0 +1,17 @@
+{
+  "name": "queue",
+  "version": "0.0.0",
+  "description": "redis playground",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.12.3",
+    "http-proxy": "^1.9.0",
+    "multer": "^0.1.8",
+    "redis": "^0.12.1"
+  }
+}
