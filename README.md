@@ -44,6 +44,8 @@ app.get('/get', function(req, res) {
 })
 ```
 The get command of redis returns the special value nil when the key does not exists.
+![image1](/img/get.jpg)
+
 
 Set command
 ```sh
@@ -54,6 +56,9 @@ app.get('/set', function(req, res) {
 })
 ```
 client.set sets the key and client.expire makes the key expire in given time.
+
+![image2](/img/set.jpg)
+
 
 #### Recent urls
 
@@ -82,7 +87,7 @@ app.get('/recent', function(req, res){
   })
 });
 ```
-
+![image3](/img/recent.jpg)
 #### Upload/ Meow
 Upload command can be used to upload an image using redis by making a post request. Image is pushed using the lpush command putting it in the left end of the queue. In the meow command, we pop using rpop command the display the picture on top of the queue.
 ```sh
@@ -111,12 +116,12 @@ app.get('/meow', function(req, res) {
 		});
 })
 ```
-
+![image4](/img/upload.jpg)
 #### Additional service running
 
 To run additional service, we execute the service on port 3000 and port 3001 as shown in image below.
-![image2](/img/task4.jpg)
+![image5](/img/task4.jpg)
 #### Demonstrate proxy
 
 The proxy server is run on localhost:8000. The code is present in proxy.js. We push all the servers on redis keylist. For each request, we pop one server from the keylist and pass on the request to that server. After this we push the server back to the end of the list.
-![image2](/img/task5.jpg)
+![image6](/img/task5.jpg)
