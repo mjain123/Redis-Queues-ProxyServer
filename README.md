@@ -21,6 +21,8 @@ Express uses the concept of routes to use pattern matching against requests and 
 app.get('/', function(req, res) {
   res.send('hello world')
 })
+
+
 Redis
 
 You will be using redis to build some simple infrastructure components, using the node-redis client.
@@ -41,7 +43,7 @@ app.get('/get', function(req, res) {
 	});
 })
 ```
-The get command of redis returns empty string when the key does not exists.
+The get command of redis returns the special value nil when the key does not exists.
 
 Set command
 ```sh
