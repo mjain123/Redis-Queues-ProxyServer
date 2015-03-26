@@ -30,6 +30,19 @@ You will be using redis to build some simple infrastructure components, using th
 var redis = require('redis')
 var client = redis.createClient(6379, '127.0.0.1', {})
 
+### Execution
+1.  Clone the repository.
+2.  Execute /redis-2.8.19/redis-server.exe
+3.  On the command prompt in the repository directory, execute
+```sh
+npm install
+node main.js 3001 &
+node main.js 3002 &
+node proxy.js
+```
+In the browser, goto localhost:3000, localhost:3000/set, localhost:3000/get, localhost:3000/recent, localhost:3000/meow
+	
+
 #### Set Get commands
 
 Get command 
