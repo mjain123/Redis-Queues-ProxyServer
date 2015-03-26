@@ -27,7 +27,8 @@ You will be using redis to build some simple infrastructure components, using th
 var redis = require('redis')
 var client = redis.createClient(6379, '127.0.0.1', {})
 
-1. Set Get commands
+#### Set Get commands
+
 Get command 
 ```sh
 app.get('/get', function(req, res) {
@@ -51,7 +52,7 @@ app.get('/set', function(req, res) {
 ```
 client.set sets the key and client.expire makes the key expire in given time.
 
-2. Recent urls
+#### Recent urls
 
 To get the recent urls, first we push each accessed url on the redis keylist. And then when the command is executed, we return the urls by popping it from the redis keylist.
 
@@ -84,7 +85,7 @@ app.get('/recent', function(req, res){
 });
 ```
 
-3. Upload/ Meow
+#### Upload/ Meow
 Upload command can be used to upload an image using redis by making a post request. Image is pushed using the lpush command putting it in the left end of the queue. In the meow command, we pop using rpop command the display the picture on top of the queue.
 ```sh
 
@@ -113,8 +114,10 @@ app.get('/meow', function(req, res) {
 })
 ```
 
-4. Additional service running
+#### Additional service running
+
 To run additional service, we execute the service on port 3000 and port 3001 as shown in image below.
 
-5. Demonstrate proxy
+#### Demonstrate proxy
+
 The proxy server is run on localhost:8000. The code is present in proxy.js. We push all the servers on redis keylist. For each request, we pop one server from the keylist and pass on the request to that server. After this we push the server back to the end of the list.
