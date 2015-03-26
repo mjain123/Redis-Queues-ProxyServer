@@ -115,7 +115,8 @@ app.get('/meow', function(req, res) {
 #### Additional service running
 
 To run additional service, we execute the service on port 3000 and port 3001 as shown in image below.
-
+![image2](/img/task4.jpg)
 #### Demonstrate proxy
 
 The proxy server is run on localhost:8000. The code is present in proxy.js. We push all the servers on redis keylist. For each request, we pop one server from the keylist and pass on the request to that server. After this we push the server back to the end of the list.
+![image2](/img/task5.jpg)
