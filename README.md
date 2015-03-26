@@ -59,27 +59,22 @@ To get the recent urls, first we push each accessed url on the redis keylist. An
 ```sh
 app.use(function(req, res, next) 
 {
-	console.log(req.method, req.url);
-  //console.log( server.address().port);
-		// ... INSERT HERE.
+
   var host = server.address().address;
   var port = server.address().port;
   var url = 'http://'+host+':'+port+req.url;
-  //console.log(url);
   client.lpush(recentKeys, url);
   client.ltrim(recentKeys, 0 , 4);
-	next(); // Passing the request to the next handler in the stack.
+  next(); // Passing the request to the next handler in the stack.
 });
 
 app.get('/recent', function(req, res){
       client.lrange(recentKeys, 0, 4, function(err, value){
-      console.log("Last five requests: \n");
       var result='';
       for (var i = 0; i < value.length; i++) {
         result = result + (i+1) +'.'+ value[i] +" <br>";
         result = result +"\n";
       }
-      console.log(result);
       res.send(result);
   })
 });
