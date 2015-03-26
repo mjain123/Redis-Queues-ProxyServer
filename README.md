@@ -7,7 +7,7 @@ Install redis and run on localhost:6379
 A simple web server
 
 Use express to install a simple web server.
-
+```sh
 var server = app.listen(3000, function () {
 
   var host = server.address().address
@@ -15,6 +15,7 @@ var server = app.listen(3000, function () {
 
   console.log('Example app listening at http://%s:%s', host, port)
 })
+```
 Express uses the concept of routes to use pattern matching against requests and sending them to specific functions. You can simply write back a response body.
 
 app.get('/', function(req, res) {
