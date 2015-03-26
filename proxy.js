@@ -29,7 +29,7 @@ var server='';
 
             //   console.log("server == " + server);
               var target = { target:  server};
-              console.log('balancing request to: ', target);
+              console.log('Call to server: ', target);
               proxy.web(req, res, target);
 
               server = JSON.stringify(server);
