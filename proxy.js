@@ -22,7 +22,7 @@ var proxy = httpProxy.createServer();
 
 http.createServer(function (req, res) {
 var server='';
-  client.rpop("servers", function(err,data)
+  client.rpoplpush("servers","servers", function(err,data)
         {
             console.log(data);
             server = JSON.parse(data);
@@ -33,7 +33,7 @@ var server='';
               proxy.web(req, res, target);
 
               server = JSON.stringify(server);
-              client.lpush(servers,server);
+              //client.lpush(servers,server);
   
 
         });
